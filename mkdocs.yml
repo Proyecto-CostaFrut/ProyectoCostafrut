@@ -1,0 +1,30 @@
+site_name: Propuesta de solución a Costafrut
+
+nav:
+  - Inicio: index.md
+  - Hardware y Costos: hardware.md
+  - App y Descargas: descargas.md
+  - Guía de Uso: uso.md
+
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.tabs
+    - navigation.expand
+  palette:
+    primary: green
+    accent: lime
+  icon:
+    logo: material/leaf
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+
+copyright: Copyright &copy; 2025 Proyecto CostaFrut
+
+extra_css:
+  - stylesheets/extra.css
