@@ -26,26 +26,50 @@ Implementaremos una red de **nodos solares autónomos** distribuidos en el campo
 
 <div class="home-diagram-container">
 
-  <div style="background: #e8f5e9; border: 2px solid #2e7d32; border-radius: 12px; padding: 20px; text-align: center; width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <div class="home-box" style="background: #e8f5e9; border: 2px solid #2e7d32;">
     <div style="font-size: 32px; margin-bottom: 10px;">📡</div>
-    <strong style="color: #1b5e20; display: block; font-size: 1.1em;">1. Captura</strong>
-    <div style="font-size: 13px; color: #555; margin-top: 5px;">Sensores de Humedad</div>
+    <strong style="color: #1b5e20; font-size: 1.1em;">1. Captura</strong>
+    <div style="font-size: 13px; color: #555; margin-top: 5px; line-height: 1.2;">Sensores de Humedad</div>
   </div>
 
-  <div class="home-arrow">➜</div>
+  <div class="home-arrow-anim">
+    <svg width="60" height="20">
+      <defs>
+        <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#2e7d32" />
+        </marker>
+      </defs>
+      <line x1="0" y1="10" x2="50" y2="10" stroke="#2e7d32" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-green)" />
+      <circle cx="0" cy="10" r="3" fill="#4caf50">
+        <animate attributeName="cx" from="0" to="50" dur="1.5s" repeatCount="indefinite" />
+      </circle>
+    </svg>
+  </div>
 
-  <div style="background: #e3f2fd; border: 2px solid #1565c0; border-radius: 12px; padding: 20px; text-align: center; width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <div class="home-box" style="background: #e3f2fd; border: 2px solid #1565c0;">
     <div style="font-size: 32px; margin-bottom: 10px;">📶</div>
-    <strong style="color: #0d47a1; display: block; font-size: 1.1em;">2. Transmisión</strong>
-    <div style="font-size: 13px; color: #555; margin-top: 5px;">Red LoRa</div>
+    <strong style="color: #0d47a1; font-size: 1.1em;">2. Transmisión</strong>
+    <div style="font-size: 13px; color: #555; margin-top: 5px; line-height: 1.2;">Red LoRa</div>
   </div>
 
-  <div class="home-arrow">➜</div>
+  <div class="home-arrow-anim">
+    <svg width="60" height="20">
+      <defs>
+        <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#1565c0" />
+        </marker>
+      </defs>
+      <line x1="0" y1="10" x2="50" y2="10" stroke="#1565c0" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-blue)" />
+      <circle cx="0" cy="10" r="3" fill="#2196f3">
+        <animate attributeName="cx" from="0" to="50" dur="1.5s" repeatCount="indefinite" begin="0.75s" />
+      </circle>
+    </svg>
+  </div>
 
-  <div style="background: #fff3e0; border: 2px solid #ef6c00; border-radius: 12px; padding: 20px; text-align: center; width: 160px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <div class="home-box" style="background: #fff3e0; border: 2px solid #ef6c00;">
     <div style="font-size: 32px; margin-bottom: 10px;">💻</div>
-    <strong style="color: #e65100; display: block; font-size: 1.1em;">3. Acción</strong>
-    <div style="font-size: 13px; color: #555; margin-top: 5px;">Riego Inteligente</div>
+    <strong style="color: #e65100; font-size: 1.1em;">3. Acción</strong>
+    <div style="font-size: 13px; color: #555; margin-top: 5px; line-height: 1.2;">Riego Inteligente</div>
   </div>
 
 </div>
