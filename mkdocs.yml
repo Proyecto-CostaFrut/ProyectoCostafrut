@@ -27,4 +27,4 @@ markdown_extensions:
 copyright: Copyright &copy; 2025 Proyecto CostaFrut
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.css?v=2
