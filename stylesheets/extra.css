@@ -1,5 +1,5 @@
 /* ==========================================================================
-   EXTRA.CSS - VERSIÓN DEFINITIVA (PC ELEGANTE + MÓVIL FUNCIONAL)
+   EXTRA.CSS - VERSIÓN FINAL (CON TABLA DE CONTENIDOS CORREGIDA)
    ========================================================================== */
 
 :root > * {
@@ -21,18 +21,16 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* --- 2. ESTILOS DE LA CAJA PRINCIPAL (EL "PAPEL" BEIGE) --- */
+/* --- 2. ESTILOS DE LA CAJA PRINCIPAL --- */
 .md-main__inner {
-    background-color: rgba(225, 210, 190, 0.97); /* Beige suave */
+    background-color: rgba(225, 210, 190, 0.97);
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    
-    /* MÁRGENES Y RELLENOS BASE (MÓVIL) */
     margin: 1rem 0.5rem !important; 
     padding: 1.5rem 1rem !important; 
 }
 
-/* --- 3. PESTAÑAS DE NAVEGACIÓN (TABS) --- */
+/* --- 3. PESTAÑAS DE NAVEGACIÓN --- */
 .md-tabs {
     background-color: #e6dccf !important; 
     border-bottom: 3px solid #8d6e63 !important;
@@ -49,87 +47,123 @@ body {
     opacity: 1;
 }
 
-/* --- 4. COMPORTAMIENTO RESPONSIVE (LA CLAVE) --- */
+/* --- 4. COMPORTAMIENTO RESPONSIVE --- */
 
-/* >>> VISTA DE CELULAR (Por defecto) <<< */
-/* Aseguramos que el botón de menú (hamburguesa) sea visible */
+/* >>> MÓVIL <<< */
 .md-header__button[for="__drawer"] {
     display: block !important;
-    color: #1B5E20 !important;
+    color: white !important;
 }
 
-/* Ajuste del título en móvil para que no sea gigante */
 .md-typeset h1 {
     font-size: 1.8rem;
     margin-top: 0;
 }
 
-
-/* >>> VISTA DE PC (Pantallas mayores a 1220px) <<< */
+/* >>> PC (Pantallas grandes) <<< */
 @media screen and (min-width: 76.25em) {
-    
-    /* 1. Ocultar menú lateral (Hamburguesa) porque tenemos Tabs */
-    .md-header__button[for="__drawer"] {
-        display: none !important;
-    }
+    .md-header__button[for="__drawer"] { display: none !important; }
+    .md-sidebar--primary { display: none !important; }
 
-    /* 2. Ocultar barra lateral izquierda (Navegación duplicada) */
-    .md-sidebar--primary {
-        display: none !important;
-    }
-
-    /* 3. MEJORAR LA CAJA DE CONTENIDO EN PC */
     .md-main__inner {
-        max-width: 1200px;         /* Ancho máximo controlado */
-        margin: 2rem auto !important; /* Centrado horizontalmente */
-        padding: 3rem 4rem !important; /* MUCHO MÁS ESPACIO INTERNO (Aire) */
+        max-width: 1200px;
+        margin: 2rem auto !important;
+        padding: 3rem 4rem !important;
     }
 
-    /* 4. Ajuste fino del Logo para tocar la letra P (Tu petición anterior) */
     .md-header__button.md-logo {
         transform: translate(22px, -4px);
     }
     
-    /* 5. Títulos más grandes y elegantes en PC */
     .md-typeset h1 {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
     }
 }
 
-/* ... (Mantén todo lo que ya tenías arriba) ... */
+/* --- 5. FLECHAS DEL DIAGRAMA (INICIO) --- */
+.home-diagram-container {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px; margin: 30px 0;
+}
+
+.home-arrow {
+    font-size: 28px; color: #1B5E20; font-weight: bold; display: flex; justify-content: center; align-items: center;
+    transform: rotate(90deg); margin: 5px 0; width: 100%;
+}
+
+@media screen and (min-width: 60em) {
+    .home-arrow {
+        transform: rotate(0deg); margin: 0 15px; width: auto;
+    }
+}
+
+/* --- 6. CORRECCIÓN TABLA DE CONTENIDOS (DERECHA) --- */
+/* Esto es lo que faltaba para que no se vea blanca */
+.md-nav--secondary .md-nav__title {
+    background-color: #1B5E20 !important; 
+    color: #ffffff !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 1.5rem; 
+    font-weight: bold;
+}
+
+/* Fondo suave para los enlaces de la tabla */
+.md-nav--secondary .md-nav__list {
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* ... (Todo lo anterior sigue igual) ... */
 
 /* ==========================================================
-   9. FLECHAS DEL DIAGRAMA DE INICIO (RESPONSIVE)
+   9. DIAGRAMA DE INICIO (ANIMADO Y UNIFORME)
    ========================================================== */
 .home-diagram-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     margin: 30px 0;
 }
 
-.home-arrow {
-    font-size: 28px;
-    color: #1B5E20; /* Verde corporativo */
-    font-weight: bold;
+/* CAJAS: Tamaño fijo y contenido centrado */
+.home-box {
+    width: 160px;
+    height: 160px; /* Altura fija = Cuadrados iguales */
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* Centrado vertical y horizontal del contenido interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FLECHAS ANIMADAS */
+.home-arrow-anim {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 60px;
+    height: 60px;
     
-    /* POR DEFECTO (Móvil): Flecha apunta abajo */
+    /* MÓVIL (Por defecto): Rotar 90 grados para apuntar abajo */
     transform: rotate(90deg); 
-    margin: 5px 0;     
-    width: 100%; /* Ocupa ancho completo para separar cajas verticalmente */
+    margin: -10px 0; /* Ajuste para que no ocupe mucho espacio vertical */
 }
 
-/* EN PC (Pantallas grandes): Flecha apunta a la derecha */
+/* PC (Pantallas grandes): Rotar 0 grados (derecha) */
 @media screen and (min-width: 60em) {
-    .home-arrow {
+    .home-arrow-anim {
         transform: rotate(0deg);
-        margin: 0 15px;
-        width: auto; /* Ancho automático para quedar entre cajas */
+        margin: 0 10px;
     }
 }
