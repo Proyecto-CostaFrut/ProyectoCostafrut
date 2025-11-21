@@ -1,5 +1,5 @@
 /* ==========================================================================
-   EXTRA.CSS - VERSIÓN FINAL: ALINEACIÓN ESTRICTA
+   EXTRA.CSS - VERSIÓN ESTRICTA (COLUMNA VERTICAL MÓVIL)
    ========================================================================== */
 
 :root > * {
@@ -7,7 +7,7 @@
     --md-accent-fg-color:  #5D4037; 
 }
 
-/* --- 1. FONDO Y CABECERA --- */
+/* 1. FONDO Y CABECERA */
 body {
   background-image: url(../imagenes/CampoAgricola.jpg);
   background-size: cover;
@@ -21,88 +21,54 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* --- 2. ESTILOS DE LA CAJA PRINCIPAL --- */
+/* 2. CAJA PRINCIPAL */
 .md-main__inner {
     background-color: rgba(225, 210, 190, 0.97);
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    
-    /* MÓVIL: Márgenes reducidos para aprovechar pantalla */
     margin: 1rem 0.5rem !important; 
     padding: 1.5rem 1rem !important; 
 }
 
-/* --- 3. PESTAÑAS DE NAVEGACIÓN --- */
+/* 3. TABS */
 .md-tabs {
     background-color: #e6dccf !important; 
     border-bottom: 3px solid #8d6e63 !important;
 }
+.md-tabs__link { color: #5D4037 !important; opacity: 0.85; font-weight: 700; }
+.md-tabs__link--active { color: #000000 !important; opacity: 1; }
 
-.md-tabs__link {
-    color: #5D4037 !important;
-    opacity: 0.85;
-    font-weight: 700;
-}
+/* 4. RESPONSIVE GLOBAL */
+.md-header__button[for="__drawer"] { display: block !important; color: white !important; }
+.md-typeset h1 { font-size: 1.8rem; margin-top: 0; }
 
-.md-tabs__link--active {
-    color: #000000 !important;
-    opacity: 1;
-}
-
-/* --- 4. COMPORTAMIENTO RESPONSIVE GLOBAL --- */
-
-/* MÓVIL (Por defecto) */
-.md-header__button[for="__drawer"] {
-    display: block !important;
-    color: white !important;
-}
-
-.md-typeset h1 {
-    font-size: 1.8rem;
-    margin-top: 0;
-}
-
-/* PC (Pantallas grandes) */
 @media screen and (min-width: 76.25em) {
     .md-header__button[for="__drawer"] { display: none !important; }
     .md-sidebar--primary { display: none !important; }
-
     .md-main__inner {
         max-width: 1200px;
         margin: 2rem auto !important;
-        /* Reduje un poco el padding lateral para evitar cortes en laptops */
-        padding: 3rem 3rem !important; 
+        padding: 3rem 4rem !important;
     }
-
-    .md-header__button.md-logo {
-        transform: translate(22px, -4px);
-    }
-    
-    .md-typeset h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
+    .md-header__button.md-logo { transform: translate(22px, -4px); }
+    .md-typeset h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
 }
 
 /* ==========================================================
-   5. DIAGRAMA DE INICIO (ALINEACIÓN ESTRICTA)
+   5. DIAGRAMA DE INICIO (CORRECCIÓN DEFINITIVA)
    ========================================================== */
 
-/* CONTENEDOR DEL DIAGRAMA */
 .home-diagram-container {
     display: flex;
-    
-    /* MÓVIL: Forzamos COLUMNA VERTICAL (Uno abajo del otro) */
-    flex-direction: column; 
-    
+    /* ESTA ES LA CLAVE: Forzamos columna vertical por defecto (Móvil) */
+    flex-direction: column !important; 
     justify-content: center;
     align-items: center;
     gap: 10px;
     margin: 30px 0;
-    width: 100%; /* Asegura que use todo el ancho disponible */
 }
 
-/* CAJAS */
+/* Cajas */
 .home-box {
     width: 160px;
     height: 160px;
@@ -116,35 +82,32 @@ body {
     align-items: center;
 }
 
-/* FLECHAS */
+/* Flechas */
 .home-arrow-anim {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
-    height: 40px; /* Altura reducida en móvil para pegar más los cuadros */
-    
-    /* MÓVIL: Apunta ABAJO */
+    height: 60px;
+    /* MÓVIL: Rotada 90 grados (apunta abajo) */
     transform: rotate(90deg); 
 }
 
-/* >>> AJUSTES SOLO PARA PC (Sobrescribe lo anterior) <<< */
+/* >>> SOLO EN PC: CAMBIAMOS A FILA HORIZONTAL <<< */
 @media screen and (min-width: 60em) {
     .home-diagram-container {
-        /* PC: Forzamos FILA HORIZONTAL (Uno al lado del otro) */
-        flex-direction: row; 
+        /* En PC, cambiamos a fila */
+        flex-direction: row !important; 
     }
 
     .home-arrow-anim {
-        width: 60px;
-        height: 60px;
-        /* PC: Apunta a la DERECHA */
-        transform: rotate(0deg); 
-        margin: 0 10px;
+        /* En PC, rotación 0 (apunta derecha) */
+        transform: rotate(0deg);
+        margin: 0 15px;
     }
 }
 
-/* --- 6. TABLA DE CONTENIDOS --- */
+/* 6. TABLA DE CONTENIDOS */
 .md-nav--secondary .md-nav__title {
     background-color: #1B5E20 !important; 
     color: #ffffff !important;
@@ -154,7 +117,6 @@ body {
     margin-top: 1.5rem; 
     font-weight: bold;
 }
-
 .md-nav--secondary .md-nav__list {
     background-color: rgba(255, 255, 255, 0.4);
     padding: 10px;
